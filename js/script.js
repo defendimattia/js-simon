@@ -1,3 +1,5 @@
+
+
 const numbersListElement = document.getElementById("numbers-list")
 
 let newRandomNums = []
@@ -14,3 +16,25 @@ for (i = 0; i < newRandomNums.length; i++) {
     newLi.innerHTML = newRandomNums[i]
     numbersListElement.appendChild(newLi)
 }
+
+// countdown
+
+const countdownElement = document.getElementById("countdown")
+let counter = 3
+
+
+// timer 
+const timer = setInterval(function () {
+
+    
+    countdownElement.innerHTML = counter
+    counter--
+    if (counter === -1 ) {
+        clearInterval(timer)
+    }
+
+}, 1000)
+
+
+
+
