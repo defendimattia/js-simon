@@ -19,9 +19,8 @@ for (i = 0; i < newRandomNums.length; i++) {
 }
 
 // countdown
-
 const countdownElement = document.getElementById("countdown")
-let counter = 30
+let counter = 2
 
 
 // timer 
@@ -39,6 +38,24 @@ const timer = setInterval(function () {
 
 }, 1000)
 
+
+// input values 
+const formControlElements = document.getElementsByClassName("form-control")
+const form = document.querySelector("form")
+
+
+form.addEventListener("submit", function (event)  {
+
+    event.preventDefault()
+    for (i = 0; i < formControlElements.length; i++){
+        
+        const val = parseInt(formControlElements[i].value)
+        // confronta se il valore dell'index è presente nella lista di numeri generati
+        if (newRandomNums.indexOf(val) === -1) console.log(val + " non è presente")
+        else console.log(formControlElements[i].value + " è presente")
+    }
+
+})
 
 
 
