@@ -1,6 +1,7 @@
 
-
 const numbersListElement = document.getElementById("numbers-list")
+const answersFormElement = document.getElementById("answers-form")
+const instructionsElement = document.getElementById("instructions")
 
 let newRandomNums = []
 
@@ -20,17 +21,20 @@ for (i = 0; i < newRandomNums.length; i++) {
 // countdown
 
 const countdownElement = document.getElementById("countdown")
-let counter = 3
+let counter = 30
 
 
 // timer 
 const timer = setInterval(function () {
 
-    
+    // at 0 function
     countdownElement.innerHTML = counter
     counter--
     if (counter === -1 ) {
         clearInterval(timer)
+        numbersListElement.classList.add("d-none")
+        answersFormElement.classList.remove("d-none")
+        instructionsElement.innerText = "Inserisci tutti i numeri che ricordi (l'ordine non è importante)"
     }
 
 }, 1000)
