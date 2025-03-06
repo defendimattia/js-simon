@@ -29,7 +29,7 @@ const timer = setInterval(function () {
     // at 0 function
     countdownElement.innerHTML = counter
     counter--
-    if (counter === -1 ) {
+    if (counter === -1) {
         clearInterval(timer)
         numbersListElement.classList.add("d-none")
         answersFormElement.classList.remove("d-none")
@@ -42,20 +42,26 @@ const timer = setInterval(function () {
 // input values 
 const formControlElements = document.getElementsByClassName("form-control")
 const form = document.querySelector("form")
+const numGuessed = []
+const messageElement = document.getElementById("message")
 
 
-form.addEventListener("submit", function (event)  {
+form.addEventListener("submit", function (event) {
 
     event.preventDefault()
-    for (i = 0; i < formControlElements.length; i++){
-        
-        const val = parseInt(formControlElements[i].value)
-        // confronta se il valore dell'index è presente nella lista di numeri generati
-        if (newRandomNums.indexOf(val) === -1) console.log(val + " non è presente")
-        else console.log(formControlElements[i].value + " è presente")
-    }
+    for (i = 0; i < formControlElements.length; i++) {
 
+        // valore in int dell'elemento i nell'array
+        const val = parseInt(formControlElements[i].value)
+
+        // confronta se il valore dell'index è presente nella lista di numeri generati e lo mette in array (numGuessed)
+        if (newRandomNums.indexOf(val) !== -1) numGuessed.push(val)
+
+    }
+    
+    messageElement.textContent = `Hai indovintato ${numGuessed.length} numeri! (${numGuessed.join()})`
 })
+
 
 
 
