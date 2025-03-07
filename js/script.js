@@ -20,7 +20,7 @@ for (i = 0; i < newRandomNums.length; i++) {
 
 // countdown
 const countdownElement = document.getElementById("countdown")
-let counter = 2
+let counter = 30
 
 
 // timer 
